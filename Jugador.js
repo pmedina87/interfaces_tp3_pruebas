@@ -1,6 +1,7 @@
 class Jugador {
-    constructor(nombre) {
+    constructor(nombre, fichas) {
         this.nombre = nombre;
+        this.fichas = fichas
     }
 
     getNombre() {

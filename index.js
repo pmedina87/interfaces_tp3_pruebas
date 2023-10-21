@@ -1,9 +1,11 @@
 let canvas = document.querySelector("#canvas");
 let ctx = canvas.getContext("2d");
 let opc_juego = document.querySelector("#opciones-juego");
+let desafio = document.querySelector("#desafio");
 let cont_jugador = 0;
 let posXInicioTablero = 0;
 let posYInicioTablero = 0;
+let fichasJugador = 0;
 // let jugador1;
 // let jugador2;
 // const ancho = canvas.width;
@@ -37,6 +39,15 @@ function jugar() {
     opc_juego.removeAttribute("hidden");
 }
 
+desafio.addEventListener("change", function () {
+	var selectedOption = this.options[this.selectedIndex];
+	console.log("Option selected: " + selectedOption.value);
+});
+
+// function setearFichas() {
+//     console.log(desafio);
+// }
+
 
 // tomo los datos del formulario para setear el juego (segun lo que crearon los usuario)
 let formulario = document.querySelector("form")
@@ -53,18 +64,22 @@ formulario.addEventListener("submit", (e) => {
     if(tablero == '4') {
         posXInicioTablero = 195;
         posYInicioTablero = 50;
+        fichasJugador = 21;
     }
     if(tablero == '5') {
         posXInicioTablero = 200;
         posYInicioTablero = 55;
+        fichasJugador = 28;
     }
     if(tablero == '6') {
         posXInicioTablero = 215;
         posYInicioTablero = 65;
+        fichasJugador = 36;
     }
     if(tablero == '7') {
         posXInicioTablero = 215;
         posYInicioTablero = 40;
+        fichasJugador = 45;
     }
    
     let tablero_juego = crearTablero(posXInicioTablero, posYInicioTablero, ctx, tablero);
