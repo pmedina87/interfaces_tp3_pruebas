@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id="canvas" width="880" height="480" style="border:1px solid #000000;">
+    </canvas>
+
+    <div id="opciones-juego" hidden>
+        <h4>Opciones del juego</h4>
+        <form>
+            <div>
+                <label>Tipo de Tablero: </label>
+                <select name="tablero" id="">
+                    <option value="4">Cuatro en linea</option>
+                    <option value="5">Cinco en linea</option>
+                    <option value="6">Seis en linea</option>
+                    <option value="7">Siete en linea</option>
+                </select>
+            </div>
+            <div>
+                <label for="desafio">Tipo de Desafio: </label>
+                <select name="desafio" id="">
+                    <option value="batman_guason">Batman vs El Guason</option>
+                    <option value="milei_massa">Milei vs Massa</option>
+                    <option value="river_boca">River vs Boca</option>
+                    <option value="homero-burns">Homero vs Mr Burns</option>
+                </select>
+            </div>
+            <div>
+                <label for="jugador1">Jugador 1: </label>
+                <input type="text" name="jugador1" id="jugador1" placeholder="Ingrese el nombre del jugador 1">
+            </div>
+            <div>
+                <label for="jugador2">Jugador 2: </label>
+                <input type="text" name="jugador2" id="jugador2" placeholder="Ingrese el nombre del jugador 2">    
+            </div>
+            <div>
+                <button type="submit">Arrancar Juego!!</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <button onclick="jugar()">Jugar</button>
+
+    <script src="Jugador.js"></script>
+    <script src="Tablero.js"></script>
+    <script src="Casillero.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
