@@ -54,7 +54,7 @@ class Tablero {
 			return 50;
 		}
 		if (this.tipo == "7") {
-			return 40;
+			return 45;
 		}
 	}
 

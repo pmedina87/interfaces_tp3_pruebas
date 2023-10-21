@@ -56,14 +56,14 @@ formulario.addEventListener("submit", (e) => {
     }
     if(tablero == '5') {
         posXInicioTablero = 200;
-        posYInicioTablero = 80;
+        posYInicioTablero = 55;
     }
     if(tablero == '6') {
         posXInicioTablero = 215;
-        posYInicioTablero = 60;
+        posYInicioTablero = 65;
     }
     if(tablero == '7') {
-        posXInicioTablero = 240;
+        posXInicioTablero = 215;
         posYInicioTablero = 40;
     }
    
