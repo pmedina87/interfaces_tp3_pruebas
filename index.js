@@ -5,7 +5,11 @@ let desafio = document.querySelector("#desafio");
 let cont_jugador = 0;
 let posXInicioTablero = 0;
 let posYInicioTablero = 0;
+let posXInicioFicha = 20;//valor fijo, luego se seteara en base al tamaño del tablero
+let posYInicioFicha = 20;
 let fichasJugador = 0;
+let radio = 15;
+let color = "red";
 // let jugador1;
 // let jugador2;
 // const ancho = canvas.width;
@@ -59,6 +63,7 @@ formulario.addEventListener("submit", (e) => {
     let desafio = dataForm.get("desafio");
     let jugador1 = dataForm.get('jugador1');
     let jugador2 = dataForm.get('jugador2');
+    let fichasJugador;
 
     // setear dinamicamente posX y posY de donde comienza el tablero, segun el tipo.
     if(tablero == '4') {
@@ -84,6 +89,23 @@ formulario.addEventListener("submit", (e) => {
    
     let tablero_juego = crearTablero(posXInicioTablero, posYInicioTablero, ctx, tablero);
     tablero_juego.dibujar();
+
+
+
+    const ficha = new Ficha(ctx, posXInicioFicha, posYInicioFicha, radio, color);
+
+    // Luego, puedes llamar a ficha.dibujar() para dibujar la ficha en el canvas.
+    ficha.dibujar();
+
+
+
+
+
+
+
+   /* //dibujar fichas
+    let Fichas = new Ficha(posXInicioTablero, posYInicioTablero, ctx);
+    Fichas.dibujar();*/
     
     let jug1 = crearJugador(jugador1);
     // console.log(jug1.getNombre());
@@ -93,6 +115,10 @@ formulario.addEventListener("submit", (e) => {
     // console.log(jugador1.getNombre());
 
 });
+
+/*function crearFichas(posXInicioTablero, posYInicioTablero, ctx){
+    return new Ficha(posXInicioTablero, posYInicioTablero, ctx);
+}*/
 
 function crearTablero(posX, posY, contexto, tablero) {
     return new Tablero(posX, posY, contexto, tablero);
