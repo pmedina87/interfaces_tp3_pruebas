@@ -5,39 +5,12 @@ let desafio = document.querySelector("#desafio");
 let cont_jugador = 0;
 let posXInicioTablero = 0;
 let posYInicioTablero = 0;
-let posXInicioFicha = 20;//valor fijo, luego se seteara en base al tamaño del tablero
-let posYInicioFicha = 20;
+let posXInicioFicha = 40;//valor fijo, luego se seteara en base al tamaño del tablero
+let posYInicioFicha = 40;
 let fichasJugador = 0;
 let radio = 15;
 let color = "red";
-// let jugador1;
-// let jugador2;
-// const ancho = canvas.width;
-// const alto = canvas.heigth;
 
-// let ubicacionx = ancho / 2;
-// let ubicaciony = alto / 2;
-
-// let ctx = canvas.getContext("2d");
-
-// //rectangulo
-// ctx.fillStyle = "#FFAABB";
-// ctx.fillRect(0, 0, 250, 175); // fillRect( x,y,width,height ) 
-
-// // x => width
-// // y => height
-// //linea
-// ctx.moveTo(0, 0); //moveTo(x,y) - define el punto inicial de la línea
-// ctx.lineTo(250, 175); // lineTo( x,y ) - define el punto final de la línea
-
-// ctx.moveTo(0, 175);
-// ctx.lineTo(250, 0);
-// ctx.stroke();
-
-// //ciruclo
-// ctx.beginPath(); // comienza un camino
-// ctx.arc(400, 200, 140, 0, 2 * Math.PI); // arc(x, y, r, startangle, endangle) 
-// ctx.stroke();
 
 function jugar() {
     opc_juego.removeAttribute("hidden");
@@ -91,21 +64,33 @@ formulario.addEventListener("submit", (e) => {
     tablero_juego.dibujar();
 
 
-
-    const ficha = new Ficha(ctx, posXInicioFicha, posYInicioFicha, radio, color);
-
-    // Luego, puedes llamar a ficha.dibujar() para dibujar la ficha en el canvas.
-    ficha.dibujar();
+    const ficha1 = new Ficha(ctx, posXInicioFicha, posYInicioFicha, radio, color);
 
 
+    for (let i=0;i<21;i++){
+        posXInicioFicha=posXInicioFicha;
+        posYInicioFicha= posYInicioFicha; 
+        if(i>10){
+            posXInicioFicha=80; 
+            //como posiciono en y sin resetear el valor en cada vuelta?
+               }                     
+        ficha1.dibujar();  
+        posYInicioFicha= posYInicioFicha+30
+    }
+     
 
 
+    posXInicioFicha=840;
+    posYInicioFicha=40;
 
-
-
-   /* //dibujar fichas
-    let Fichas = new Ficha(posXInicioTablero, posYInicioTablero, ctx);
-    Fichas.dibujar();*/
+    const ficha2 = new Ficha(ctx, posXInicioFicha, posYInicioFicha , radio, "blue");
+    for (let a=0;a<21;a++){
+                ficha2.dibujar(); 
+                posXInicioFicha=posXInicioFicha;
+                posYInicioFicha= posYInicioFicha; 
+                posYInicioFicha= posYInicioFicha+30
+    }
+  
     
     let jug1 = crearJugador(jugador1);
     // console.log(jug1.getNombre());
@@ -116,9 +101,7 @@ formulario.addEventListener("submit", (e) => {
 
 });
 
-/*function crearFichas(posXInicioTablero, posYInicioTablero, ctx){
-    return new Ficha(posXInicioTablero, posYInicioTablero, ctx);
-}*/
+
 
 function crearTablero(posX, posY, contexto, tablero) {
     return new Tablero(posX, posY, contexto, tablero);
