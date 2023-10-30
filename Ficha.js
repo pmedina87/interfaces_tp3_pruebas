@@ -1,11 +1,12 @@
 
 class Ficha {
-    constructor(ctx, posXInicioFicha, posYInicioFicha, radio,color) {
+    constructor(ctx, posXInicioFicha, posYInicioFicha, radio,color,borderColor) {
       this.ctx = ctx ;
       this.posXInicioFicha = posXInicioFicha;
       this.posYInicioFicha =posYInicioFicha;
       this.radio = radio;
       this.color = color;
+      this.borderColor=borderColor;
       this.seleccionada=false;
     }
   
@@ -15,5 +16,6 @@ class Ficha {
       this.ctx .fillStyle = this.color;
       this.ctx .fill();
       this.ctx .closePath();
+      this.ctx .strokeStyle = this.borderColor;
     }
   }

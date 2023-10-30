@@ -5,12 +5,12 @@ let desafio = document.querySelector("#desafio");
 let cont_jugador = 0;
 let posXInicioTablero = 0;
 let posYInicioTablero = 0;
-let posXInicioFicha = 40;//valor fijo, luego se seteara en base al tamaño del tablero
-let posYInicioFicha = 40;
+let posXInicioFicha = 10//Math.round(Math.random()*200)
+let posYInicioFicha = 10//Math.round(Math.random()*200);
 let fichasJugador = 0;
 let radio = 15;
 let color = "red";
-
+let borderColor="black";
 
 function jugar() {
     opc_juego.removeAttribute("hidden");
@@ -64,33 +64,29 @@ formulario.addEventListener("submit", (e) => {
     tablero_juego.dibujar();
 
 
-    const ficha1 = new Ficha(ctx, posXInicioFicha, posYInicioFicha, radio, color);
-
+    const ficha1 = new Ficha(ctx, posXInicioFicha, posYInicioFicha, radio, color,borderColor);
+    
 
     for (let i=0;i<21;i++){
-        posXInicioFicha=posXInicioFicha;
-        posYInicioFicha= posYInicioFicha; 
-        if(i>10){
-            posXInicioFicha=80; 
-            //como posiciono en y sin resetear el valor en cada vuelta?
-               }                     
+        posXInicioFicha =30+ Math.round(Math.random()*150);
+        posYInicioFicha =30+ Math.round(Math.random()*400);
+       
         ficha1.dibujar();  
-        posYInicioFicha= posYInicioFicha+30
+       // posYInicioFicha= posYInicioFicha+30
     }
      
 
 
-    posXInicioFicha=840;
-    posYInicioFicha=40;
+    
 
-    const ficha2 = new Ficha(ctx, posXInicioFicha, posYInicioFicha , radio, "blue");
+   const ficha2 = new Ficha(ctx, posXInicioFicha, posYInicioFicha , radio, "blue");
     for (let a=0;a<21;a++){
+                posXInicioFicha =700+ Math.round(Math.random()*150);
+                posYInicioFicha =30+ Math.round(Math.random()*400);
                 ficha2.dibujar(); 
-                posXInicioFicha=posXInicioFicha;
-                posYInicioFicha= posYInicioFicha; 
-                posYInicioFicha= posYInicioFicha+30
+                
     }
-  
+
     
     let jug1 = crearJugador(jugador1);
     // console.log(jug1.getNombre());
